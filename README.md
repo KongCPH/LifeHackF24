@@ -79,4 +79,4 @@
     ```
    
 4. When creating new routes: We suggest you prefix your projectname to all your routes so we don't end up mixing them around. 
-So if you project is called "bmi", then call your routes "bmi/create", "bmi/update" etc
+So if your project is called "bmi", then call your routes "bmi/create", "bmi/update" etc

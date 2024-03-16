@@ -9,9 +9,28 @@
 
 <body>
 
-<h1>Welcome to the Javalin / Thymeleaf demo</h1>
+<div class="page">
+    <header>
+        <a href="index.html" th:href="@{/}">
+            <img alt="logo" src="../public/images/lifehacklogo.png" th:src="@{/images/lifehacklogo.png}"/>
+        </a>
+    </header>
+    <h1>Lifehack team A</h1>
 
-<p>This is your first web application in this world</p>
+    <div class="projects">
+        <h2>Projects to check out</h2>
+        <ul>
+            <li><a href="timezones/index.html" th:href="@{/timezones/}"/>Timezones</a></li>
+        </ul>
 
+    </div>
+    <h3>If you need to login - do it here</h3>
+    <form class="generic-form" method="post">
+        <input type="text" name="username" placeholder="Enter your username"/>
+        <input type="password" name="password" placeholder="Enter your password"/>
+        <button class="btn btn-ok" type="submit" formaction="/login">Login</button>
+        <div><p class="error" th:unless="${#strings.isEmpty(message)}" th:text="${message}"></p></div>
+    </form>
+</div>
 </body>
 </html>

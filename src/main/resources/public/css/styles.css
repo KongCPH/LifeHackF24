@@ -53,3 +53,23 @@ h3 {
     color: red;
     max-width: 400px;
 }
+
+.generic-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.generic-form input[type=text],
+.generic-form input[type=password],
+.generic-form button {
+    padding: 7px;
+    border-radius: 5px;
+    border: 1px solid silver;
+}
+
+.generic-form button:hover {
+    background-color: darkgray;
+}
+
+

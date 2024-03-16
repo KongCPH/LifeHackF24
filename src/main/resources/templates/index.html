@@ -19,10 +19,13 @@
 
     <div class="projects">
         <h2>Projects to check out</h2>
-        <ul>
-            <li><a href="timezones/index.html" th:href="@{/timezones/}"/>Timezones</a></li>
-        </ul>
-
+        <div class="cards">
+                <div class="card">
+                    <img class="card-image" alt="timezones" src="../public/images/timezones/timezone_icon.jpg" th:src="@{/images/timezones/timezone_icon.jpg}"/>
+                    <div class="card-copy">Check the clock, everywhere</div>
+                    <a class="card-link" href="timezones/index.html" th:href="@{/timezones/}"/>Timezones</a>
+                </div>
+        </div>
     </div>
     <h3>If you need to login - do it here</h3>
     <form class="generic-form" method="post">

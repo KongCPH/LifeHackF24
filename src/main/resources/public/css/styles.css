@@ -72,4 +72,56 @@ h3 {
     background-color: darkgray;
 }
 
+.projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    min-width:100px;
+    max-width:200px;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid silver;
+    border-radius: 8px;
+}
+
+.card-image {
+    width: 100%;
+    height: auto;
+}
+
+.card-link {
+    font-family: "Helvetica Neue";
+    padding: 10px;
+    font-size: 0.85rem;
+    color: white;
+    border: solid 1px silver;
+    text-decoration: none;
+    background-color: darkblue;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.card-link:hover {
+    background-color: #2566ac;
+}
+
+.card-copy {
+    font-family: "Helvetica Neue";
+    padding: 10px;
+    font-size: 0.85rem;
+}
+
 

@@ -43,7 +43,7 @@
    </html>
    ```
 
-4. Create a css file in the `public/css` folder called `projectname.css`
+4. Create a css file in the `public/css` folder called `projectname.css`. When stylings stuff, do it in this file
 
 5. Create a ProjectNameController in the `app/controllers` folder like this:
 

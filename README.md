@@ -81,3 +81,5 @@
    
 7. When creating new routes: We suggest you prefix your projectname to all your routes so we don't end up mixing them around. 
 So if your project is called "bmi", then call your routes "bmi/create", "bmi/update" etc
+
+8. Find or create a project logo with size 200x200 pixels and drop it in the images/project folder. This will be used for the frontpage.

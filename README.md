@@ -42,9 +42,9 @@
 </html>
 ```
 
-3. Create a css file in the `public/css` folder called `projectname.css`
+1. Create a css file in the `public/css` folder called `projectname.css`
 
-4. Create a ProjectNameController in the `app/controllers` folder like this:
+2. Create a ProjectNameController in the `app/controllers` folder like this:
 
     ```java
     package app.controllers;
@@ -67,8 +67,18 @@
     }
     ```
    
-5. Add routing to Main:
+3. Add routing to Main:
 
     ```java
-    ProjectNameController.addRoutes(app, connectionPool);
+   public static void main(String[] args)
+   {
+        // ...........
+        // Add routing
+        ProjectNameController.addRoutes(app, connectionPool);
+    }
     ```
+   
+4. When creating new routes
+
+We suggest you prefix your projectname to all your routes so we don't end up mixing them around. 
+So if you project is called "bmi", then call your routes "bmi/create", "bmi/update" etc

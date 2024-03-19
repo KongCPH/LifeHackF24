@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="../../public/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
-<link href="../../public/css/projectname.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
+<link href="../../public/css/c4.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
 </head>
 
 <body>
@@ -19,7 +19,45 @@
 
     <h1>Food currently in season</h1>
 
-    <p>Choose month and food category</p>
+    <h2>Choose month and food category:</h2>
+    <div class="dropdowns">
+            <select name="month" id="month">
+                <option>Choose month</option>
+                <option value="January">January</option>
+                <option value="February">February</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
+                <option value="August">August</option>
+                <option value="September">September</option>
+                <option value="Oktober">October</option>
+                <option value="November">November</option>
+                <option value="December">December</option>
+            </select>
+            <br/>
+            <br/>
+
+        <div class="dropdowns">
+            <select name="food_category" id="food_category">
+                <option>Choose category</option>
+                <option value="Fruits">Fruits</option>
+                <option value="Vegetables">Vegetables</option>
+                <option value="Fish">Fish</option>
+                <option value="Mushrooms">Mushrooms</option>
+                <option value="Toxic Mushrooms">Toxic Mushrooms</option>
+                </select>
+
+        </div>
+
+            <div id="order-button">
+                <button type="submit">Søg</button>
+
+            </div>
+
+
+    </div>
 </div>
 </body>
 </html>

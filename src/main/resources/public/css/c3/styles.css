@@ -1,1 +1,23 @@
-hej igen shuhufd
+html * {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    padding:8px;
+    border: 1px solid silver;
+    min-height: 600px;
+}
+
+header {
+    margin-bottom: 40px;
+}

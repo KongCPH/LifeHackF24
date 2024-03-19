@@ -1,0 +1,18 @@
+Struktur:
+    Undermappe i controller og entity med gruppenavn
+    Undermappe i templates med gruppenavn
+    Undermappe i css med gruppenavn
+    Undermappe i images med gruppenavn
+    Ny branch med gruppenavn - alt sendes til main som pullrequest
+    Eksporter db fil til resources/sql og kald den gruppenavn.sql
+
+
+Kodestandard og navngivning:
+    Metode addRoutes i controller
+    Præfix routingnavn med gruppenavn
+    Præfix tabelnavne med gruppenavn
+    Brug snake_case i db
+    CamelCase
+    Engelske navne (klasser, metoder, variable, stylesheets, html-sider, tabeller, kolonner)
+    Websites må være engelsk- eller dansksproget, men konsistent ikke blandet på én side
+    Kommentarer er ikke obligatorisk

@@ -1,5 +1,4 @@
 package app.persistence.c3;
 
-public enum WashingInstructions {
-
+public class WashingInstructions {
 }

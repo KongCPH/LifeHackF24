@@ -11,18 +11,16 @@ import java.util.List;
 
 public class C1TaskMapper {
 
-    public static void addTask(C1Team team, String taskName, String description, ConnectionPool connectionPool) throws DatabaseException {
-        String sql = "INSERT INTO c1_task (title, description, lifecycle_id) values (?,?,?)";
-
+    public static void addTask(String taskName, String description, String user, int teamID, ConnectionPool connectionPool) throws DatabaseException {
+        String sql = "INSERT INTO c1_task (title, description, user, team_id) values (?,?,?,?)";
         C1Task newTask = null;
 
-        try(
-                Connection connection = connectionPool.getConnection();
-                PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+        try(Connection connection = connectionPool.getConnection();
+            PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)
                 ) {
             ps.setString(1,taskName);
             ps.setString(2,description);
-            ps.setInt(3, 0);
+            ps.setString(3, user);
             int rowsAffected = ps.executeUpdate();
             if (rowsAffected == 1){
                 ResultSet rs = ps.getGeneratedKeys();

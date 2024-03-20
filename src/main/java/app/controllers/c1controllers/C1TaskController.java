@@ -19,6 +19,19 @@ public class C1TaskController {
         app.post("movetask", ctx -> moveTask(ctx, connectionPool));
     }
 
+    private static void addTask(Context ctx, ConnectionPool connectionPool) {
+        String taskName = ctx.formParam("taskName");
+        String description = ctx.formParam("description");
+        String user = ctx.formParam("user");
+
+        try{
+            C1Team team = ctx.sessionAttribute("team");
+            C1TaskMapper.addTask(taskName, description, user, connectionPool);
+        } catch (DatabaseException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     private static void moveTask(Context ctx, ConnectionPool connectionPool) {
         int taskID = Integer.parseInt(ctx.formParam("taskID"));
         int lifeCycleID = Integer.parseInt(ctx.formParam("lifeCycleID"));

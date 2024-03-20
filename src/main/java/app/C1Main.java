@@ -30,7 +30,6 @@ public class C1Main
         // Routing
 
         app.get("/", ctx -> ctx.render("index.html"));
-        UserController.addRoutes(app, connectionPool);
-        TimeZonesController.addRoutes(app, connectionPool);
+
     }
 }

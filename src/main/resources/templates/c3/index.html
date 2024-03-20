@@ -26,7 +26,7 @@
         <div>
             <img src="../../public/images/c3/canbleach.png" height="100" width="100" th:src="@{/images/c3/canbleach.png}" onclick="openPopup('popup1')"/>
             <div id="popup1" class="popup">
-
+                    <h2> Blegning af tøj </h2>
                 <tr th:each="instruction: ${instructionsList}" th:if="${instruction.name} == 'canbleach'">
 
                     <td th:text="${instruction.description}"></td>
@@ -36,29 +36,38 @@
         </div>
 
         <div>
-            <img src="../../public/images/c3/chemical_p.png" height="100" width="100" onclick="openPopup('popup2')"/>
+            <img src="../../public/images/c3/chemical_p.png" height="100" width="100" th:src="@{/images/c3/chemical_p.png}" onclick="openPopup('popup2')"/>
             <div id="popup2" class="popup">
-                <h2>chemical_p</h2>
-                <p>hent description fra db</p>
-                <button onclick="closePopup('popup2')">Luk</button>
+                <h2> Kemisk rensning </h2>
+                <tr th:each="instruction: ${instructionsList}" th:if="${instruction.name} == 'chemical_p'">
+
+                    <td th:text="${instruction.description}"></td>
+
+                    <button onclick="closePopup('popup2')">Luk</button>
             </div>
         </div>
 
         <div>
-            <img src="../../public/images/c3/chemical_w.png" height="100" width="100" onclick="openPopup('popup3')"/>
+            <img src="../../public/images/c3/chemical_w.png" height="100" width="100" th:src="@{/images/c3/chemical_w.png}" onclick="openPopup('popup3')"/>
             <div id="popup3" class="popup">
-                <h2>chemical_w</h2>
-                <p>hent description fra db</p>
-                <button onclick="closePopup('popup3')">Luk</button>
+                <h2> Kemisk rens </h2>
+                <tr th:each="instruction: ${instructionsList}" th:if="${instruction.name} == 'chemical_w'">
+
+                    <td th:text="${instruction.description}"></td>
+
+                    <button onclick="closePopup('popup3')">Luk</button>
             </div>
         </div>
         <div>
 
-            <img src="../../public/images/c3/dontbleach.png" height="100" width="100" onclick="openPopup('popup4')"/>
+            <img src="../../public/images/c3/dontbleach.png" height="100" width="100" th:src="@{/images/c3/dontbleach.png}" onclick="openPopup('popup4')"/>
             <div id="popup4" class="popup">
-                <h2>dontBleach</h2>
-                <p>hent description fra db</p>
-                <button onclick="closePopup('popup4')">Luk</button>
+                <h2> Tåler ikke blegning </h2>
+                <tr th:each="instruction: ${instructionsList}" th:if="${instruction.name} == 'dontbleach'">
+
+                    <td th:text="${instruction.description}"></td>
+
+                    <button onclick="closePopup('popup4')">Luk</button>
             </div>
         </div>
 
@@ -67,36 +76,43 @@
     <div id="content2">
         <div>
 
-            <img src="../../public/images/c3/dontironme.png" height="100" width="100" onclick="openPopup('popup5')"/>
-            <div id="popup5" class="popup">
-                <h2>Dontironme</h2>
-                <p>hent description fra db</p>
+            <img src="../../public/images/c3/dontironme.png" height="100" width="100" th:src="@{/images/c3/dontironme.png}" onclick="openPopup('popup5')"/>
+            <h2> Kan ikke stryges </h2>
+            <tr th:each="instruction: ${instructionsList}" th:if="${instruction.name} == 'dontironme'">
+
+                <td th:text="${instruction.description}"></td>
                 <button onclick="closePopup('popup5')">Luk</button>
             </div>
         </div>
         <div>
 
-            <img src="../../public/images/c3/dontwash.png" height="100" width="100" onclick="openPopup('popup6')"/>
+            <img src="../../public/images/c3/dontwash.png" height="100" width="100" th:src="@{/images/c3/dontwash.png}" onclick="openPopup('popup6')"/>
             <div id="popup6" class="popup">
-                <h2>dontWash</h2>
-                <p>hent description fra db</p>
+                <h2> Tåler ikke vask </h2>
+                <tr th:each="instruction: ${instructionsList}" th:if="${instruction.name} == 'dontwash'">
+
+                    <td th:text="${instruction.description}"></td>
                 <button onclick="closePopup('popup6')">Luk</button>
             </div>
         </div>
         <div>
 
-            <img src="../../public/images/c3/handwash.png" height="100" width="100" onclick="openPopup('popup7')"/>
+            <img src="../../public/images/c3/handwash.png" height="100" width="100" th:src="@{/images/c3/handwash.png}" onclick="openPopup('popup7')"/>
             <div id="popup7" class="popup">
-                <h2>handWash</h2>
-                <p>hent description fra db</p>
+                <<h2> Håndvask </h2>
+                <tr th:each="instruction: ${instructionsList}" th:if="${instruction.name} == 'handwash'">
+
+                    <td th:text="${instruction.description}"></td>
                 <button onclick="closePopup('popup7')">Luk</button>
             </div>
         </div>
         <div>
-            <img src="../../public/images/c3/ironme.png" height="100" width="100" onclick="openPopup('popup8')"/>
+            <img src="../../public/images/c3/ironme.png" height="100" width="100" th:src="@{/images/c3/ironme.png}" onclick="openPopup('popup8')"/>
             <div id="popup8" class="popup">
-                <h2>ironme</h2>
-                <p>hent description fra db</p>
+                <h2> Strygning </h2>
+                <tr th:each="instruction: ${instructionsList}" th:if="${instruction.name} == 'ironme'">
+
+                    <td th:text="${instruction.description}"></td>
                 <button onclick="closePopup('popup8')">Luk</button>
             </div>
         </div>
@@ -106,35 +122,43 @@
     <div id="content3">
         <div>
 
-            <img src="../../public/images/c3/toerretumbler.png" height="100" width="100" onclick="openPopup('popup9')"/></div>
+            <img src="../../public/images/c3/toerretumbler.png" height="100" width="100" th:src="@{/images/c3/toerretumbler.png}" onclick="openPopup('popup9')"/></div>
         <div id="popup9" class="popup">
-            <h2>Tørretumbler</h2>
-            <p>hent description fra db</p>
+            <h2> Tørretumbler </h2>
+            <tr th:each="instruction: ${instructionsList}" th:if="${instruction.name} == 'toerretumbler'">
+
+                <td th:text="${instruction.description}"></td>
             <button onclick="closePopup('popup9')">Luk</button>
         </div>
         <div>
 
-            <img src="../../public/images/c3/washme.png" height="100" width="100" onclick="openPopup('popup10')"/>
+            <img src="../../public/images/c3/washme.png" height="100" width="100" th:src="@{/images/c3/washme.png}" onclick="openPopup('popup10')"/>
             <div id="popup10" class="popup">
-                <h2>dontBleach</h2>
-                <p>hent description fra db</p>
+                <h2> Vask i vaskemaskinen </h2>
+                <tr th:each="instruction: ${instructionsList}" th:if="${instruction.name} == 'washme'">
+
+                    <td th:text="${instruction.description}"></td>
                 <button onclick="closePopup('popup10')">Luk</button>
             </div>
         </div>
         <div>
-            <img src="../../public/images/c3/nochemicals.png" height="100" width="100" onclick="openPopup('popup11')"/>
+            <img src="../../public/images/c3/nochemicals.png" height="100" width="100" th:src="@{/images/c3/nochemicals.png}" onclick="openPopup('popup11')"/>
             <div id="popup11" class="popup">
-                <h2>dontBleach</h2>
-                <p>hent description fra db</p>
+                <h2> Tåler ikke kemisk rens </h2>
+                <tr th:each="instruction: ${instructionsList}" th:if="${instruction.name} == 'nochemicals'">
+
+                    <td th:text="${instruction.description}"></td>
                 <button onclick="closePopup('popup11')">Luk</button>
             </div>
         </div>
         <div>
 
-            <img src="../../public/images/c3/dontdry.png" height="100" width="100" onclick="openPopup('popup12')"/>
+            <img src="../../public/images/c3/dontdry.png" height="100" width="100" th:src="@{/images/c3/dontdry.png}" onclick="openPopup('popup12')"/>
             <div id="popup12" class="popup">
-                <h2>dontBleach</h2>
-                <p>hent description fra db</p>
+                <h2> Kan ikke tørretumbles </h2>
+                <tr th:each="instruction: ${instructionsList}" th:if="${instruction.name} == 'dontdry'">
+
+                    <td th:text="${instruction.description}"></td>
                 <button onclick="closePopup('popup12')">Luk</button>
             </div>
         </div>

@@ -19,6 +19,12 @@ body {
     color: #333;
 }
 
+.forms-container1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
 .forms-container {
     display: flex;
     flex-direction: column;
@@ -108,7 +114,3 @@ button{
 input[type="radio"]:checked + label{
     background-color: #c5c5c5;
 }
-
-/*.selectThing {*/
-/*    display: flex;*/
-/*}*/

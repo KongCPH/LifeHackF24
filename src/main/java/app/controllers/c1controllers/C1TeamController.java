@@ -16,7 +16,7 @@ public class C1TeamController {
     public static void addRoutes(Javalin app, ConnectionPool connectionPool)
     {
         app.post("login", ctx -> login(ctx, connectionPool));
-        app.post("logout", ctx -> logout(ctx));
+        app.get("logout", ctx -> logout(ctx));
         app.post("createTeam", ctx -> createTeam(ctx, connectionPool));
 
 

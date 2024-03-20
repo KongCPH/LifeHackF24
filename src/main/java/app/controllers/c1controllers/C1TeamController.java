@@ -58,6 +58,8 @@ public class C1TeamController {
         try {
             C1Team team = C1TeamMapper.login(teamName, password, connectionPool);
             ctx.sessionAttribute("team", team);
+            List<C1Task> taskList = C1TaskMapper.getAllTasksPerTeam(team.getTeamID(), connectionPool);
+            ctx.attribute("taskList", taskList);
             ctx.render("c1templates/c1dashboard.html");
 
         } catch (DatabaseException e) {

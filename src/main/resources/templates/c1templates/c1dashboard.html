@@ -20,5 +20,116 @@
 </head>
 <body>
 
+<h1><span th:text="${session.teamname.teamName}"></span> You're logged in</h1>
+
+<div id="task-table-container">
+
+    <table class="task-table" id="backlog">
+        <thead>
+        <tr>
+            <th>Backlog</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="task: ${taskList}" th:if="${task.lifecycleId == 0}">
+            <td th:text="${task.title}"></td>
+            <td>
+                <form method="post">
+                    <input type="hidden" name="taskId" th:value="${task.taskId}">
+                    <input type="hidden" name="lifecycleId" th:value="${task.lifecycleId+1}">
+                    <button type="submit" formaction="movetask">Right</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+
+    <table class="task-table" id="doing">
+        <thead>
+        <tr>
+            <th>Doing</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="task: ${taskList}" th:if="${task.lifecycleId == 1}">
+            <td th:text="${task.title}"></td>
+            <td class="task-buttons">
+                <form method="post">
+                    <input type="hidden" name="taskId" th:value="${task.taskId}">
+                    <input type="hidden" name="lifecycleId" th:value="${task.lifecycleId - 1}">
+                    <button type="submit" formaction="movetask">Left</button>
+                </form>
+                <form method="post">
+                    <input type="hidden" name="taskId" th:value="${task.taskId}">
+                    <input type="hidden" name="lifecycleId" th:value="${task.lifecycleId+1}">
+                    <button type="submit" formaction="movetask">Right</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <table class="task-table" id="testing">
+        <thead>
+        <tr>
+            <th>Testing</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="task: ${taskList}" th:if="${task.lifecycleId == 2}">
+            <td th:text="${task.title}"></td>
+            <td>
+                <form method="post">
+                    <input type="hidden" name="taskId" th:value="${task.taskId}">
+                    <input type="hidden" name="lifecycleId" th:value="${task.lifecycleId - 1}">
+                    <button type="submit" formaction="movetask">Left</button>
+                </form>
+                <form method="post">
+                    <input type="hidden" name="taskId" th:value="${task.taskId}">
+                    <input type="hidden" name="lifecycleId" th:value="${task.lifecycleId+1}">
+                    <button type="submit" formaction="movetask">Right</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <table class="task-table" id="done">
+        <thead>
+        <tr>
+            <th>Done</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="task: ${taskList}" th:if="${task.lifecycleId == 3}">
+            <td th:text="${task.title}"></td>
+            <td>
+                <form method="post">
+                    <input type="hidden" name="taskId" th:value="${task.taskId}">
+                    <input type="hidden" name="lifecycleId" th:value="${task.lifecycleId - 1}">
+                    <button type="submit" formaction="movetask">Left</button>
+                </form>
+                <form method="post">
+                    <input type="hidden" name="taskId" th:value="${task.taskId}">
+                    <input type="hidden" name="lifecycleId" th:value="${task.lifecycleId+1}">
+                    <button type="submit" formaction="movetask">Right</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+<p th:if="${session.teamname != null}">
+    <a href="index.html" th:href="@{/logout}">Logout</a>
+</p>
+
 </body>
 </html>

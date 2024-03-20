@@ -39,5 +39,26 @@ public class C1TeamMapper {
         }
     }
 
+    public static C1Team createAccount(String teamName, String password, ConnectionPool connectionPool) throws DatabaseException {
+
+        String sql = "INSERT INTO c1_team (name, password) VALUES (?, ?)";
+
+        try (Connection connection = connectionPool.getConnection();
+             PreparedStatement ps = connection.prepareStatement(sql)) {
+
+
+            ps.setString(1, teamName);
+            ps.setString(2, password);
+
+            ps.executeUpdate();
+
+            return login(teamName, password, connectionPool);
+
+        } catch (SQLException e) {
+            throw new DatabaseException("DB error", e.getMessage());
+        }
+    }
+
 
 }
+

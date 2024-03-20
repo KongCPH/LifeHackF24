@@ -18,7 +18,7 @@ public class c4UserController {
 
     private static void search(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
         String foodMonth = ctx.formParam("month");
-        String foodCategory = ctx.formParam("food_category");
+        String foodCategory = ctx.formParam("foodcategory");
         if (!(("Choose month").equals(foodMonth)) || !(("Choose category").equals(foodCategory))) {
 
             try {

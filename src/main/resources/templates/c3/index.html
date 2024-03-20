@@ -20,14 +20,17 @@
         </a>
     </header>
 
-    <h1>Klik på et symbol</h1>
+    <h1>Click a symbol</h1>
 
     <div id="content1">
         <div>
-            <img src="../../public/images/c3/canbleach.png" height="100" width="100" onclick="openPopup('popup1')"/>
+            <img src="../../public/images/c3/canbleach.png" height="100" width="100" th:src="@{/images/c3/canbleach.png}" onclick="openPopup('popup1')"/>
             <div id="popup1" class="popup">
-                <h2 th:text="${instructionsList.canbleach}"><span></span></h2>
-                <p>hent description fra db</p>
+
+                <tr th:each="instruction: ${instructionsList}" th:if="${instruction.name} == 'canbleach'">
+
+                    <td th:text="${instruction.description}"></td>
+
                 <button onclick="closePopup('popup1')">Luk</button>
             </div>
         </div>

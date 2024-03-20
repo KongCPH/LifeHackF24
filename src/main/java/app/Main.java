@@ -1,7 +1,6 @@
 package app;
 
 import app.config.ThymeleafConfig;
-import app.controllers.TimeZonesController;
 import app.controllers.UserController;
 import app.persistence.ConnectionPool;
 import io.javalin.Javalin;

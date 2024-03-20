@@ -1,8 +1,14 @@
 package app.entities;
 
+/**
+ *
+ * Her er en javadoc kommentar
+ * @author kong
+ */
 public class Task
 {
     private int taskId;
+
     private String name;
     private boolean done;
     private int userId;
@@ -30,6 +36,10 @@ public class Task
         return done;
     }
 
+    /**
+     * User id kommer fra databasen
+     * @return et autoinkrementeret id fra databasen
+     */
     public int getUserId()
     {
         return userId;

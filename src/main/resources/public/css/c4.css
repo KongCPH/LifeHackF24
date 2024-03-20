@@ -1,0 +1,50 @@
+/* index-specific styles */
+
+h1 {
+    color: darkolivegreen;
+    font-family: "Bookman Old Style";
+    font-size: 2.5rem;
+
+}
+
+h2 {
+    color: darkgreen;
+    font-family: "Bookman Old Style";
+    font-size: 2rem;
+
+
+}
+
+
+.dropdowns {
+font-family: "Baskerville Old Face";
+    font-size: 1.2rem;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+
+
+#search-button {
+    display: flex;
+    justify-content: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+#search-button button {
+background-color: burlywood;
+    color: firebrick;
+    border-radius: 7px;
+    font-size: 1.2rem;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+
+#search-button:hover {
+    background-color: darkolivegreen;
+    color: gold;
+}

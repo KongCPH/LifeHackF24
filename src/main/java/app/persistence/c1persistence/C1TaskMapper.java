@@ -95,6 +95,20 @@ public class C1TaskMapper {
     } // METHOD END
 
 
+    public static void deleteTask(int taskId, ConnectionPool connectionPool) throws DatabaseException {
 
+        String sql = "DELETE FROM c1_task WHERE task_id=?";
+
+        try (Connection connection = connectionPool.getConnection();
+             PreparedStatement ps = connection.prepareStatement(sql)) {
+
+            ps.setInt(1,taskId);
+
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new DatabaseException("Error on delete", e.getMessage());
+        }
+    }
 
 } // CLASS END

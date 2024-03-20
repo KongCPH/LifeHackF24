@@ -25,9 +25,9 @@
 <div class="topper">
     <h2>Welcome, you are logged in to <span th:text="${session.team.teamName}"></span></h2>
 
-<!--    <p th:if="${session.teamname != null}">-->
-        <a class="logout" href="c1login.html" th:href="@{/logout}">Logout</a>
-<!--    </p>-->
+    <!--    <p th:if="${session.teamname != null}">-->
+    <a class="logout" href="c1login.html" th:href="@{/logout}">Logout</a>
+    <!--    </p>-->
 </div>
 
 
@@ -150,13 +150,13 @@
                     </form>
                 </td>
                 <td th:text="${task.taskTitle}"></td>
-                <!--                                <td class="right-buttons">-->
-                <!--                                    <form method="post">-->
-                <!--                                        <input type="hidden" name="taskID" th:value="${task.taskID}">-->
-                <!--                                        <input type="hidden" name="lifeCycleID" th:value="${task.lifeCycleID+1}">-->
-                <!--                                        <button class="moveButton" type="submit" formaction="movetask">Right</button>-->
-                <!--                                    </form>-->
-                <!--                                </td>-->
+                <td class="right-buttons">
+                    <form method="post">
+                        <input type="hidden" name="taskID" th:value="${task.taskID}">
+                        <input type="hidden" name="lifeCycleID" th:value="${task.lifeCycleID+1}">
+                        <button class="moveButton" type="submit" formaction="removeTask">Remove</button>
+                    </form>
+                </td>
             </tr>
             </tbody>
         </table>

@@ -18,6 +18,23 @@ public class C1TaskController {
     public static void addRoutes(Javalin app, ConnectionPool connectionPool) {
         app.post("movetask", ctx -> moveTask(ctx, connectionPool));
         app.post("addTask", ctx -> addTask(ctx, connectionPool));
+        app.post("removeTask", ctx -> deleteTask(ctx, connectionPool));
+    }
+
+    private static void deleteTask(Context ctx, ConnectionPool connectionPool) {
+
+        int taskId = Integer.parseInt(ctx.formParam("taskID"));
+
+        try {
+            C1Team team = ctx.sessionAttribute("team");
+            C1TaskMapper.deleteTask(taskId, connectionPool);
+            List<C1Task> taskList = C1TaskMapper.getAllTasksPerTeam(team.getTeamID(), connectionPool);
+            ctx.attribute("taskList", taskList);
+            ctx.render("c1templates/c1dashboard.html");
+
+        } catch (DatabaseException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private static void addTask(Context ctx, ConnectionPool connectionPool) {
@@ -49,7 +66,7 @@ public class C1TaskController {
         } catch (DatabaseException e) {
             throw new RuntimeException(e);
         }
-
     }
+
 
 }

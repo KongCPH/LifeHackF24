@@ -11,8 +11,8 @@ import java.util.List;
 
 public class C1TaskMapper {
 
-    public static void addTask(String taskName, String description, String user, int teamID, ConnectionPool connectionPool) throws DatabaseException {
-        String sql = "INSERT INTO c1_task (title, description, user, team_id) values (?,?,?,?)";
+    public static void addTask(String taskName, String description, String responsible, int teamID, ConnectionPool connectionPool) throws DatabaseException {
+        String sql = "INSERT INTO c1_task (title, description, responsible, team_id) values (?,?,?,?)";
         /*C1Task newTask = null;
 
         try(Connection connection = connectionPool.getConnection();
@@ -37,7 +37,7 @@ public class C1TaskMapper {
         ) {
             ps.setString(1, taskName);
             ps.setString(2, description);
-            ps.setString(3, user);
+            ps.setString(3, responsible);
             ps.setInt(4, teamID);
             int rowsAffected = ps.executeUpdate();
             if (rowsAffected != 1)
@@ -64,10 +64,10 @@ public class C1TaskMapper {
                 int id = rs.getInt("task_id");
                 String title = rs.getString("title");
                 String description = rs.getString("description");
-                String user = rs.getString("user");
+                String responsible = rs.getString("responsible");
                 int usId = rs.getInt("us_id");
                 int lifecycleId = rs.getInt("lifecycle_id");
-                taskList.add(new C1Task(id, title, description, user, lifecycleId, team_id));
+                taskList.add(new C1Task(id, title, description, responsible, lifecycleId, team_id));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

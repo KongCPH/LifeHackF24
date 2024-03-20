@@ -77,6 +77,7 @@
         <div>
 
             <img src="../../public/images/c3/dontironme.png" height="100" width="100" th:src="@{/images/c3/dontironme.png}" onclick="openPopup('popup5')"/>
+            <div id="popup5" class="popup">
             <h2> Kan ikke stryges </h2>
             <tr th:each="instruction: ${instructionsList}" th:if="${instruction.name} == 'dontironme'">
 

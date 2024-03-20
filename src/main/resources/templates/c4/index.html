@@ -22,7 +22,7 @@
     <h1>Food currently in season</h1>
 
     <h2>Choose month and food category:</h2>
-    <form method="get">
+    <form method="post">
     <div class="dropdowns">
             <select name="month" id="month">
                 <option >Choose month</option>
@@ -55,7 +55,7 @@
         </div>
 
             <div id="search-button">
-                <button type="submit">Search</button>
+                <button type="submit" formaction="/search">Search</button>
 
             </div>
 
@@ -63,6 +63,34 @@
     </div>
     </form>
 </div>
+
+
+    <form method="get">
+        <table class="food-table">
+            <thead>
+
+            <tr>
+                <th>Food Item</th>
+
+            </tr>
+
+            </thead>
+            <tbody>
+            <tr th:each="food: ${foodList}" th:if="${task.done}">
+                <td th:text="${task.name}"></td>
+                <td>
+                    <button type="submit" name="taskId" th:value="${task.taskId}" formaction="undo">Undo</button>
+                    <button type="submit">Edit</button>
+                    <button type="submit" name="taskId" th:value="${task.taskId}" formaction="deletetask">Delete</button>
+                    </td>
+
+            </tr>
+            </tbody>
+
+        </table>
+    </form>
+
+
 
 
 </div>

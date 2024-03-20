@@ -26,7 +26,7 @@ public class FoodMapper {
                 foodMonth = rs.getString("foodmonth");
                 foodCategory = rs.getString("foodcategory");
                 foodItem = rs.getString("fooditem");
-                return new Food(id,foodMonth, foodCategory);
+                return new Food(id,foodMonth, foodCategory,foodItem,f);
             }else {
                 throw new DatabaseException("Fejl i SQL Søgningen, kunne ikke finde det på databasen.");
             }

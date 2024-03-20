@@ -6,7 +6,6 @@ Struktur:
     Ny branch med gruppenavn - alt sendes til main som pullrequest
     Eksporter db fil til resources/sql og kald den gruppenavn.sql
 
-
 Kodestandard og navngivning:
     Metode addRoutes i controller
     Præfix routingnavn med gruppenavn

@@ -30,38 +30,38 @@
         <label for="loginRadio" class="form-label">Login to Team</label>
 
         <div class="create-form">
-            <form id="createForm">
+            <form id="createForm" method="post">
                 <div class="form-group">
                     <label for="createName">Your Name:</label>
                     <input type="text" id="createName" name="createName" required>
                 </div>
                 <div class="form-group">
                     <label for="createTeamName">Team Name:</label>
-                    <input type="text" id="createTeamName" name="createTeamName" required>
+                    <input type="text" id="createTeamName" name="teamName" required>
                 </div>
                 <div class="form-group">
                     <label for="createPassword">Team Password:</label>
-                    <input type="password" id="createPassword" name="createPassword" required>
+                    <input type="password" id="createPassword" name="password" required>
                 </div>
                 <div class="create-container">
-                    <button type="submit" class="create-btn" formaction="create">Create</button>
+                    <button type="submit" class="create-btn" formaction="createTeam">Create</button>
                 </div>
             </form>
         </div>
 
         <div class="login-form">
-            <form id="loginForm">
+            <form id="loginForm" method="post">
                 <div class="form-group">
                     <label for="loginName">Your Name:</label>
                     <input type="text" id="loginName" name="loginName" required>
                 </div>
                 <div class="form-group">
                     <label for="loginTeamName">Team Name:</label>
-                    <input type="text" id="loginTeamName" name="loginTeamName" required>
+                    <input type="text" id="loginTeamName" name="teamName" required>
                 </div>
                 <div class="form-group">
                     <label for="loginPassword">Team Password:</label>
-                    <input type="password" id="loginPassword" name="loginPassword" required>
+                    <input type="password" id="loginPassword" name="password" required>
                 </div>
                 <div class="login-container">
                     <button type="submit" class="login-btn" formaction="login">Login</button>

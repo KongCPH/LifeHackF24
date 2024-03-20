@@ -20,19 +20,19 @@ public class C1TeamController {
 
     private static void createTeam(Context ctx, ConnectionPool connectionPool) {
 
-        String teamName = ctx.formParam("teamname");
+        String teamName = ctx.formParam("teamName");
         String password = ctx.formParam("password");
 
         try {
 
             C1Team team = C1TeamMapper.createAccount(teamName, password, connectionPool);
-            ctx.sessionAttribute("team", team.getTeamName());
-            ctx.render("c1dashboard.html");
+            ctx.sessionAttribute("team", team);
+            ctx.render("c1templates/c1dashboard.html");
 
 
         } catch (DatabaseException e) {
             ctx.attribute("message", e.getMessage());
-            ctx.render("c1login.html");
+            ctx.render("c1templates/c1login.html");
         }
 
 
@@ -46,17 +46,17 @@ public class C1TeamController {
 
     private static void login(Context ctx, ConnectionPool connectionPool) {
 
-        String teamName = ctx.formParam("teamname");
+        String teamName = ctx.formParam("teamName");
         String password = ctx.formParam("password");
 
         try {
             C1Team team = C1TeamMapper.login(teamName, password, connectionPool);
-            ctx.sessionAttribute("team", team.getTeamName());
-            ctx.render("c1dashboard.html");
+            ctx.sessionAttribute("team", team);
+            ctx.render("c1templates/c1dashboard.html");
 
         } catch (DatabaseException e) {
             ctx.attribute("message", e.getMessage());
-            ctx.render("c1login.html");
+            ctx.render("c1templates/c1login.html");
         }
     }
 }

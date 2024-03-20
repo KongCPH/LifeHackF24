@@ -12,7 +12,7 @@ import java.sql.SQLException;
 public class FoodMapper {
     public static Food choose(String foodMonth, String foodCategory,String foodDescription,String foodItem, ConnectionPool connectionPool) throws DatabaseException
     {
-        String sql = "SELECT foodItem FROM food_of_season WHERE foodMonth=? AND foodCategory =?";
+        String sql = "SELECT food_item FROM food_of_season WHERE food_month=? AND food_category =?";
         try(
             Connection connection = connectionPool.getConnection();
             PreparedStatement ps = connection.prepareStatement(sql)

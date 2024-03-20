@@ -2,9 +2,73 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>LoginPage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--  Style sheet  -->
+    <link rel="stylesheet" href="../../public/css/c1css/c1styles.css">
+
+    <!--  til extra fonts   -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+          rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Display:ital@0;1&display=swap"
+          rel="stylesheet">
+
+
 </head>
 <body>
+<div class="container">
+    <h1 class="headline">Get It Done!</h1>
+    <div class="forms-container">
+        <input type="radio" id="createRadio" name="formSelector" checked>
+        <label for="createRadio" class="form-label">Create a Team</label>
+        <input type="radio" id="loginRadio" name="formSelector">
+        <label for="loginRadio" class="form-label">Login to Team</label>
 
+        <div class="create-form">
+            <form id="createForm">
+                <div class="form-group">
+                    <label for="createName">Your Name:</label>
+                    <input type="text" id="createName" name="createName" required>
+                </div>
+                <div class="form-group">
+                    <label for="createTeamName">Team Name:</label>
+                    <input type="text" id="createTeamName" name="createTeamName" required>
+                </div>
+                <div class="form-group">
+                    <label for="createPassword">Team Password:</label>
+                    <input type="password" id="createPassword" name="createPassword" required>
+                </div>
+                <div class="create-container">
+                    <button type="submit" class="create-btn" formaction="create">Create</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="login-form">
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginName">Your Name:</label>
+                    <input type="text" id="loginName" name="loginName" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginTeamName">Team Name:</label>
+                    <input type="text" id="loginTeamName" name="loginTeamName" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Team Password:</label>
+                    <input type="password" id="loginPassword" name="loginPassword" required>
+                </div>
+                <div class="login-container">
+                    <button type="submit" class="login-btn" formaction="login">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 </body>
 </html>

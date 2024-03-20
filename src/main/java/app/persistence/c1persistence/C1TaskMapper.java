@@ -13,7 +13,7 @@ public class C1TaskMapper {
 
     public static void addTask(String taskName, String description, String user, int teamID, ConnectionPool connectionPool) throws DatabaseException {
         String sql = "INSERT INTO c1_task (title, description, user, team_id) values (?,?,?,?)";
-        C1Task newTask = null;
+        /*C1Task newTask = null;
 
         try(Connection connection = connectionPool.getConnection();
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)
@@ -27,6 +27,22 @@ public class C1TaskMapper {
                 rs.next();
                 int newID = rs.getInt(1);
                 newTask = new C1Task(newID, taskName, description,"", 0, team.getTeamID());
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }*/
+        try(
+                Connection connection = connectionPool.getConnection();
+                PreparedStatement ps = connection.prepareStatement(sql)
+        ) {
+            ps.setString(1, taskName);
+            ps.setString(2, description);
+            ps.setString(3, user);
+            ps.setInt(4, teamID);
+            int rowsAffected = ps.executeUpdate();
+            if (rowsAffected != 1)
+            {
+                throw new DatabaseException("Fejl i opdatering af en task");
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

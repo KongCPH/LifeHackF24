@@ -5,24 +5,24 @@ public class C1Task {
     private int taskID;
     private String taskTitle;
     private String taskDescription;
-    private String taskUser;
+    private String taskResponsible;
     private int userStoryID;
     private int lifeCycleID;
     private int teamID;
 
-    public C1Task(int taskID, String taskTitle, String taskDescription, String taskUser, int lifeCycleID, int teamID) {
+    public C1Task(int taskID, String taskTitle, String taskDescription, String taskResponsible, int lifeCycleID, int teamID) {
         this.taskID = taskID;
         this.taskTitle = taskTitle;
         this.taskDescription = taskDescription;
-        this.taskUser = taskUser;
+        this.taskResponsible = taskResponsible;
         this.lifeCycleID = lifeCycleID;
         this.teamID = teamID;
     }
 
-    public C1Task(String taskTitle, String taskDescription, String taskUser, int teamID) {
+    public C1Task(String taskTitle, String taskDescription, String taskResponsible, int teamID) {
         this.taskTitle = taskTitle;
         this.taskDescription = taskDescription;
-        this.taskUser = taskUser;
+        this.taskResponsible = taskResponsible;
         this.teamID = teamID;
     }
 
@@ -38,8 +38,8 @@ public class C1Task {
         return taskDescription;
     }
 
-    public String getTaskUser() {
-        return taskUser;
+    public String getTaskResponsible() {
+        return taskResponsible;
     }
 
     public int getUserStoryID() {
@@ -60,7 +60,7 @@ public class C1Task {
                 "taskID=" + taskID +
                 ", taskTitle='" + taskTitle + '\'' +
                 ", taskDescription='" + taskDescription + '\'' +
-                ", taskUser='" + taskUser + '\'' +
+                ", taskResponsible='" + taskResponsible + '\'' +
                 ", userStoryID=" + userStoryID +
                 ", lifeCycleID=" + lifeCycleID +
                 ", teamID=" + teamID +

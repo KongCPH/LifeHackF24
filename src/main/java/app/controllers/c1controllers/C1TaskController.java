@@ -22,7 +22,7 @@ public class C1TaskController {
     private static void addTask(Context ctx, ConnectionPool connectionPool) {
         String taskName = ctx.formParam("taskName");
         String description = ctx.formParam("description");
-        String user = ctx.formParam("user");
+        String user = ctx.formParam("responsible");
 
         try{
             C1Team team = ctx.sessionAttribute("team");

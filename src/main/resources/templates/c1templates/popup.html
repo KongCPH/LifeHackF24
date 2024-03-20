@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Popup</title>
+    <link rel="stylesheet" href="../../public/css/c1css/c1popupStyle.css">
+</head>
+<body>
+
+<button class="open-button" onclick="openForm()">Add task</button>
+
+<div class="form-popup" id="myForm">
+    <form action="/" class="form-container">
+        <label for="taskname"><b>Task name</b></label>
+        <input type="text" placeholder="Enter task name" name="taskname" id="taskname" required>
+
+        <label for="description"><b>Task Description</b></label>
+        <input type="text" placeholder="Enter task description" name="description" id="description" required>
+
+        <button type="submit" class="btn">Add</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+    </form>
+</div>
+
+<script>
+    function openForm() {
+        document.getElementById("myForm").style.display = "block";
+    }
+
+    function closeForm() {
+        document.getElementById("myForm").style.display = "none";
+    }
+</script>
+
+</body>
+</html>

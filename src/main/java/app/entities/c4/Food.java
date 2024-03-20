@@ -17,6 +17,10 @@ public class Food
         this.foodItem = foodItem;
     }
 
+    public Food(String foodMonth, String foodCategory) {
+        this.foodMonth = foodMonth;
+        this.foodCategory = foodCategory;
+    }
 
     public int getFoodId() {
         return foodId;

@@ -100,7 +100,7 @@
 
             <img src="../../public/images/c3/handwash.png" height="100" width="100" th:src="@{/images/c3/handwash.png}" onclick="openPopup('popup7')"/>
             <div id="popup7" class="popup">
-                <<h2> Håndvask </h2>
+                <h2> Håndvask </h2>
                 <tr th:each="instruction: ${instructionsList}" th:if="${instruction.name} == 'handwash'">
 
                     <td th:text="${instruction.description}"></td>

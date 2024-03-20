@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class FoodMapper {
-    public static Food choose(String foodMonth, String foodCategory,String foodItem, ConnectionPool connectionPool) throws DatabaseException
+    public static Food choose(String foodMonth, String foodCategory,String foodDescription,String foodItem, ConnectionPool connectionPool) throws DatabaseException
     {
         String sql = "SELECT foodItem FROM food_of_season WHERE foodMonth=? AND foodCategory =?";
         try(
@@ -25,8 +25,9 @@ public class FoodMapper {
                 int id = rs.getInt("foodid");
                 foodMonth = rs.getString("foodmonth");
                 foodCategory = rs.getString("foodcategory");
+                foodDescription = rs.getString("fooddescription");
                 foodItem = rs.getString("fooditem");
-                return new Food(id,foodMonth, foodCategory,foodItem,f);
+                return new Food(id,foodMonth, foodCategory,foodDescription,foodItem);
             }else {
                 throw new DatabaseException("Fejl i SQL Søgningen, kunne ikke finde det på databasen.");
             }

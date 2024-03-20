@@ -22,8 +22,7 @@ public class c4UserController {
         if (!(("Choose month").equals(foodMonth)) || !(("Choose category").equals(foodCategory))) {
 
             try {
-                Food newFood = FoodMapper.search(foodMonth, foodCategory, connectionPool);
-                List<Food> foodList = new ArrayList<>();
+                List<Food> foodList = FoodMapper.search(foodMonth, foodCategory, connectionPool);
                 ctx.attribute("foodList", foodList);
                 ctx.render("c4/index.html");
             } catch (DatabaseException e) {

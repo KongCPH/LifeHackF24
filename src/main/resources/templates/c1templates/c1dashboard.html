@@ -5,7 +5,8 @@
     <title>DashboardPage</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--  Style sheet  -->
-    <link rel="stylesheet" href="../../public/css/c1css/c1dashboardstyles.css" th:href="@{/css/c1css/c1dashboardstyles.css}">
+    <link rel="stylesheet" href="../../public/css/c1css/c1dashboardstyles.css"
+          th:href="@{/css/c1css/c1dashboardstyles.css}">
 
     <!--  til extra fonts   -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -56,72 +57,66 @@
 <!------------------- Kanban board -------------------->
 
 <div id="task-table-container">
-    <table class="task-table" id="backlog">
-        <thead>
-        <tr>
-            <th>Backlog</th>
-            <th>Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="task: ${taskList}" th:if="${task.lifeCycleID == 0}">
-            <td th:text="${task.taskTitle}"></td>
-            <td>
-                <form method="post">
-                    <input type="hidden" name="taskID" th:value="${task.taskID}">
-                    <input type="hidden" name="lifeCycleID" th:value="${task.lifeCycleID+1}">
-                    <button type="submit" formaction="movetask">Right</button>
-                </form>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+    <div id="backlog">
+        <table class="task-table">
+            <h3>Backlog</h3>
+            <tbody>
+            <tr th:each="task: ${taskList}" th:if="${task.lifeCycleID == 0}">
+                <td th:text="${task.taskTitle}"></td>
+                <td>
+                    <form method="post">
+                        <input type="hidden" name="taskID" th:value="${task.taskID}">
+                        <input type="hidden" name="lifeCycleID" th:value="${task.lifeCycleID+1}">
+                        <button type="submit" formaction="movetask">Right</button>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 
-
-
-    <table class="task-table" id="doing">
-        <thead>
-        <tr>
-            <th>Doing</th>
-            <th>Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="task: ${taskList}" th:if="${task.lifeCycleID == 1}">
-            <td th:text="${task.taskTitle}"></td>
-            <td class="task-buttons">
+    <div id="doing">
+        <h3>Doing</h3>
+        <table class="task-table">
+            <tbody>
+            <tr th:each="task: ${taskList}" th:if="${task.lifeCycleID == 1}">
+                <td class="left-buttons">
                 <form method="post">
                     <input type="hidden" name="taskID" th:value="${task.taskID}">
                     <input type="hidden" name="lifeCycleID" th:value="${task.lifeCycleID - 1}">
                     <button type="submit" formaction="movetask">Left</button>
                 </form>
-                <form method="post">
-                    <input type="hidden" name="taskID" th:value="${task.taskID}">
-                    <input type="hidden" name="lifeCycleID" th:value="${task.lifeCycleID+1}">
-                    <button type="submit" formaction="movetask">Right</button>
-                </form>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+                </td>
+                <td th:text="${task.taskTitle}"></td>
+                <td class="right-buttons">
+                    <form method="post">
+                        <input type="hidden" name="taskID" th:value="${task.taskID}">
+                        <input type="hidden" name="lifeCycleID" th:value="${task.lifeCycleID+1}">
+                        <button type="submit" formaction="movetask">Right</button>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 
 
-    <table class="task-table" id="testing">
-        <thead>
-        <tr>
-            <th>Testing</th>
-            <th>Action</th>
-        </tr>
-        </thead>
+    <div id="testing">
+
+        <h3>Testing</h3>
+    <table class="task-table">
+
         <tbody>
         <tr th:each="task: ${taskList}" th:if="${task.lifeCycleID == 2}">
-            <td th:text="${task.taskTitle}"></td>
-            <td>
+            <td class="left-buttons">
                 <form method="post">
                     <input type="hidden" name="taskID" th:value="${task.taskID}">
                     <input type="hidden" name="lifeCycleID" th:value="${task.lifeCycleID - 1}">
                     <button type="submit" formaction="movetask">Left</button>
                 </form>
+            </td>
+            <td th:text="${task.taskTitle}"></td>
+            <td class="right-buttons">
                 <form method="post">
                     <input type="hidden" name="taskID" th:value="${task.taskID}">
                     <input type="hidden" name="lifeCycleID" th:value="${task.lifeCycleID+1}">
@@ -131,34 +126,39 @@
         </tr>
         </tbody>
     </table>
+    </div>
 
-    <table class="task-table" id="done">
-        <thead>
-        <tr>
-            <th>Done</th>
-            <th>Action</th>
-        </tr>
-        </thead>
+    <div id="done">
+
+        <h3>Done</h3>
+    <table class="task-table">
         <tbody>
         <tr th:each="task: ${taskList}" th:if="${task.lifeCycleID == 3}">
-            <td th:text="${task.taskTitle}"></td>
-            <td>
+            <td class="left-buttons">
                 <form method="post">
                     <input type="hidden" name="taskID" th:value="${task.taskID}">
                     <input type="hidden" name="lifeCycleID" th:value="${task.lifeCycleID - 1}">
                     <button type="submit" formaction="movetask">Left</button>
                 </form>
             </td>
+            <td th:text="${task.taskTitle}"></td>
+            <td class="right-buttons">
+                <form method="post">
+                    <input type="hidden" name="taskID" th:value="${task.taskID}">
+                    <input type="hidden" name="lifeCycleID" th:value="${task.lifeCycleID+1}">
+                    <button type="submit" formaction="movetask">Right</button>
+                </form>
+            </td>
         </tr>
         </tbody>
     </table>
+    </div>
 
 </div>
 
 <p th:if="${session.teamname != null}">
     <a href="c1login.html" th:href="@{/logout}">Logout</a>
 </p>
-
 
 
 </body>

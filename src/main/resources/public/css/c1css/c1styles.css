@@ -95,3 +95,15 @@ button{
     background-color: #28a745;
     color: #fff;
 }
+
+#createRadio{
+    visibility: hidden;
+}
+
+#loginRadio{
+    visibility: hidden;
+}
+
+input[type="radio"]:checked + label{
+    background-color: #c5c5c5;
+}

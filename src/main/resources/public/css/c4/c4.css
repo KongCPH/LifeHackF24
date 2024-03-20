@@ -1,18 +1,39 @@
 /* index-specific styles */
 
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 h1 {
     color: darkolivegreen;
     font-family: "Bookman Old Style";
     font-size: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 
 h2 {
     color: darkgreen;
     font-family: "Bookman Old Style";
-    font-size: 2rem;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 
+}
+
+.innerpage {
+background-image: url("../../images/c4/index background.jpg"); background-color: beige;
+    background-blend-mode: soft-light;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 
 
@@ -21,6 +42,9 @@ font-family: "Baskerville Old Face";
     font-size: 1.2rem;
     padding-top: 10px;
     padding-bottom: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 
 }
 
@@ -32,19 +56,25 @@ font-family: "Baskerville Old Face";
     padding-right: 10px;
     margin-top: 20px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #search-button button {
-background-color: burlywood;
-    color: firebrick;
+background-color: burlywood !important;
+    color: firebrick !important;
     border-radius: 7px;
     font-size: 1.2rem;
     padding-top: 10px;
     padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 
-#search-button:hover {
-    background-color: darkolivegreen;
-    color: gold;
+#search-button button:hover {
+    background-color: darkolivegreen !important;
+    color: gold !important;
 }

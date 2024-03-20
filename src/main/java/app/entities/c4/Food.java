@@ -9,7 +9,7 @@ public class Food
     private String foodItem;
 
 
-    public Food(int foodId, String foodDescription, String foodMonth, String foodCategory, String foodItem) {
+    public Food(int foodId, String foodDescription, String foodMonth) {
         this.foodId = foodId;
         this.foodDescription = foodDescription;
         this.foodMonth = foodMonth;

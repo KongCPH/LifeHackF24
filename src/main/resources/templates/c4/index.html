@@ -65,7 +65,7 @@
 </div>
 
 
-    <form method="get">
+    <form method="post">
         <table class="food-table">
             <thead>
 
@@ -76,8 +76,8 @@
 
             </thead>
             <tbody>
-            <tr th:each="food: ${foodList}" th:if="${task.done}">
-                <td th:text="${task.name}"></td>
+            <tr th:each="food: ${foodList}">
+                <td th:text="${food.food_item}"></td>
                 <td>
                     <button type="submit" name="taskId" th:value="${task.taskId}" formaction="undo">Undo</button>
                     <button type="submit">Edit</button>

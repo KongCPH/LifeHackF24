@@ -1,7 +1,5 @@
 package app.controllers.c4;
 
-import app.entities.Task;
-import app.entities.User;
 import app.entities.c4.Food;
 import app.exceptions.DatabaseException;
 import app.persistence.ConnectionPool;
@@ -9,6 +7,7 @@ import app.persistence.c4.FoodMapper;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class c4UserController {
@@ -17,19 +16,19 @@ public class c4UserController {
         app.post("/search", ctx -> search(ctx, connectionPool));
     }
 
-    private static void search(Context ctx, ConnectionPool connectionPool) {
+    private static void search(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
         String foodMonth = ctx.formParam("month");
         String foodCategory = ctx.formParam("food_category");
-        if (!(foodMonth=="Choose month") || !(foodCategory=="Choose category")) {
+        if (!(("Choose month").equals(foodMonth)) || !(("Choose category").equals(foodCategory))) {
 
             try {
-                Food newFood = FoodMapper.choose(foodMonth, foodCategory, connectionPool);
-                List<Food> foodList = FoodMapper.choose();
-                ctx.attribute("taskList", taskList); // attribute bliver nulstillet ligeså snart vi er blevet sendt videre til task.html
-                ctx.render("index.html");
+                Food newFood = FoodMapper.search(foodMonth, foodCategory, connectionPool);
+                List<Food> foodList = new ArrayList<>();
+                ctx.attribute("foodList", foodList);
+                ctx.render("c4/index.html");
             } catch (DatabaseException e) {
-                ctx.attribute("message", "Noget gik galt. Prøv evt. igen.");
-                ctx.render("task.html");
+                ctx.attribute("message", "Please choose categories!!!");
+                ctx.render("c4/index.html");
             }
         }
 

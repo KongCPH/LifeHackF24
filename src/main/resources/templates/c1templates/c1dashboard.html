@@ -68,8 +68,8 @@
             <td th:text="${task.taskTitle}"></td>
             <td>
                 <form method="post">
-                    <input type="hidden" name="taskId" th:value="${task.taskID}">
-                    <input type="hidden" name="lifecycleId" th:value="${task.lifeCycleID+1}">
+                    <input type="hidden" name="taskID" th:value="${task.taskID}">
+                    <input type="hidden" name="lifeCycleID" th:value="${task.lifeCycleID+1}">
                     <button type="submit" formaction="movetask">Right</button>
                 </form>
             </td>
@@ -91,13 +91,13 @@
             <td th:text="${task.taskTitle}"></td>
             <td class="task-buttons">
                 <form method="post">
-                    <input type="hidden" name="taskId" th:value="${task.taskID}">
-                    <input type="hidden" name="lifecycleId" th:value="${task.lifeCycleID - 1}">
+                    <input type="hidden" name="taskID" th:value="${task.taskID}">
+                    <input type="hidden" name="lifeCycleID" th:value="${task.lifeCycleID - 1}">
                     <button type="submit" formaction="movetask">Left</button>
                 </form>
                 <form method="post">
-                    <input type="hidden" name="taskId" th:value="${task.taskID}">
-                    <input type="hidden" name="lifecycleId" th:value="${task.lifeCycleID+1}">
+                    <input type="hidden" name="taskID" th:value="${task.taskID}">
+                    <input type="hidden" name="lifeCycleID" th:value="${task.lifeCycleID+1}">
                     <button type="submit" formaction="movetask">Right</button>
                 </form>
             </td>
@@ -118,13 +118,13 @@
             <td th:text="${task.taskTitle}"></td>
             <td>
                 <form method="post">
-                    <input type="hidden" name="taskId" th:value="${task.taskID}">
-                    <input type="hidden" name="lifecycleId" th:value="${task.lifeCycleID - 1}">
+                    <input type="hidden" name="taskID" th:value="${task.taskID}">
+                    <input type="hidden" name="lifeCycleID" th:value="${task.lifeCycleID - 1}">
                     <button type="submit" formaction="movetask">Left</button>
                 </form>
                 <form method="post">
-                    <input type="hidden" name="taskId" th:value="${task.taskID}">
-                    <input type="hidden" name="lifecycleId" th:value="${task.lifeCycleID+1}">
+                    <input type="hidden" name="taskID" th:value="${task.taskID}">
+                    <input type="hidden" name="lifeCycleID" th:value="${task.lifeCycleID+1}">
                     <button type="submit" formaction="movetask">Right</button>
                 </form>
             </td>
@@ -144,8 +144,8 @@
             <td th:text="${task.taskTitle}"></td>
             <td>
                 <form method="post">
-                    <input type="hidden" name="taskId" th:value="${task.taskID}">
-                    <input type="hidden" name="lifecycleId" th:value="${task.lifeCycleID - 1}">
+                    <input type="hidden" name="taskID" th:value="${task.taskID}">
+                    <input type="hidden" name="lifeCycleID" th:value="${task.lifeCycleID - 1}">
                     <button type="submit" formaction="movetask">Left</button>
                 </form>
             </td>

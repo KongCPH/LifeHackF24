@@ -42,7 +42,7 @@ public class C1TaskMapper {
 
         try(
                 Connection connection = connectionPool.getConnection();
-                PreparedStatement ps = connection.prepareStatement(sql);
+                PreparedStatement ps = connection.prepareStatement(sql)
                 ) {
             ps.setInt(1, team_id);
             ResultSet rs = ps.executeQuery();
@@ -61,15 +61,15 @@ public class C1TaskMapper {
         return taskList;
     }
 
-    public static void moveTask(int task_id, int lifecycle_id, ConnectionPool connectionPool) throws DatabaseException {
+    public static void moveTask(int taskID, int lifeCycleID, ConnectionPool connectionPool) throws DatabaseException {
         String sql = "UPDATE c1_task SET lifecycle_id = ? WHERE task_id = ?";
 
         try(
                 Connection connection = connectionPool.getConnection();
-                PreparedStatement ps = connection.prepareStatement(sql);
+                PreparedStatement ps = connection.prepareStatement(sql)
         ) {
-            ps.setInt(1, lifecycle_id);
-            ps.setInt(2, task_id);
+            ps.setInt(1, lifeCycleID);
+            ps.setInt(2, taskID);
             int rowsAffected = ps.executeUpdate();
             if (rowsAffected != 1)
             {

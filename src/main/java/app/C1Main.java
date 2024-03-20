@@ -3,6 +3,7 @@ package app;
 import app.config.ThymeleafConfig;
 import app.controllers.TimeZonesController;
 import app.controllers.UserController;
+import app.controllers.c1controllers.C1TaskController;
 import app.controllers.c1controllers.C1TeamController;
 import app.persistence.ConnectionPool;
 import io.javalin.Javalin;
@@ -33,6 +34,7 @@ public class C1Main
         app.get("/", ctx -> ctx.render("c1templates/c1login.html"));
 
         C1TeamController.addRoutes(app, connectionPool);
+        C1TaskController.addRoutes(app, connectionPool);
 
     }
 }

@@ -12,7 +12,7 @@ import java.util.List;
 public class C1TaskMapper {
 
     public static void addTask(C1Team team, String taskName, String description, ConnectionPool connectionPool) throws DatabaseException {
-        String sql = "INSERT INTO c1_task title, description, lifecycle_id) values (?,?,?)";
+        String sql = "INSERT INTO c1_task (title, description, lifecycle_id) values (?,?,?)";
 
         C1Task newTask = null;
 

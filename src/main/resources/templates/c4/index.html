@@ -65,24 +65,24 @@
 </div>
 
 
-    <form method="post">
+    <form method="get">
         <table class="food-table">
             <thead>
 
             <tr>
-                <th>Food Item</th>
+                <th>List of food in season</th>
 
             </tr>
 
             </thead>
             <tbody>
             <tr th:each="food: ${foodList}">
-                <td th:text="${food.food_item}"></td>
-                <td>
-                    <button type="submit" name="taskId" th:value="${task.taskId}" formaction="undo">Undo</button>
-                    <button type="submit">Edit</button>
-                    <button type="submit" name="taskId" th:value="${task.taskId}" formaction="deletetask">Delete</button>
-                    </td>
+                <td th:text="${food.foodItem}"></td>
+<!--                <td>-->
+<!--                    <button type="submit" name="taskId" th:value="${task.taskId}" formaction="undo">Undo</button>-->
+<!--                    <button type="submit">Edit</button>-->
+<!--                    <button type="submit" name="taskId" th:value="${task.taskId}" formaction="deletetask">Delete</button>-->
+<!--                    </td>-->
 
             </tr>
             </tbody>

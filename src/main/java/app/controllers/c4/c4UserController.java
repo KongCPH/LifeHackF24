@@ -14,6 +14,7 @@ public class c4UserController {
     public static void addRoutes(Javalin app, ConnectionPool connectionPool) {
         app.get("/c4", ctx -> index(ctx, connectionPool));
         app.post("/search", ctx -> search(ctx, connectionPool));
+        app.get("/search", ctx -> ctx.render("c4/index.html"));
     }
 
     private static void search(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
@@ -23,8 +24,13 @@ public class c4UserController {
 
             try {
                 List<Food> foodList = FoodMapper.search(foodMonth, foodCategory, connectionPool);
-                ctx.attribute("foodList", foodList);
-                ctx.render("c4/index.html");
+                if (foodList.isEmpty()) {
+                    ctx.attribute("message", "There is no food in season in the selected month or category");
+                    ctx.render("c4/index.html");
+                } else {
+                    ctx.attribute("foodList", foodList);
+                    ctx.render("c4/index.html");
+                }
             } catch (DatabaseException e) {
                 ctx.attribute("message", "Please choose categories!!!");
                 ctx.render("c4/index.html");

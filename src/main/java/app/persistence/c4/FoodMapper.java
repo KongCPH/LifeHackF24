@@ -14,7 +14,7 @@ import java.util.List;
 public class FoodMapper {
     public static List<Food> search(String foodMonth, String foodCategory, ConnectionPool connectionPool) throws DatabaseException {
         List<Food> foodList = new ArrayList<>();
-        String sql = "SELECT * FROM food_of_season WHERE food_month=? AND food_category =?";
+        String sql = "SELECT * FROM food_in_season WHERE food_month=? AND food_category =?";
         try (
                 Connection connection = connectionPool.getConnection();
                 PreparedStatement ps = connection.prepareStatement(sql)

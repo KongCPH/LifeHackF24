@@ -1,17 +1,39 @@
 package app.persistence.c1persistence;
 
 import app.entities.c1entities.C1Task;
+import app.entities.c1entities.C1Team;
 import app.exceptions.DatabaseException;
 import app.persistence.ConnectionPool;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class C1TaskMapper {
+
+    public static void addTask(C1Team team, String taskName, String description, ConnectionPool connectionPool) throws DatabaseException {
+        String sql = "INSERT INTO c1_task title, description, lifecycle_id) values (?,?,?)";
+
+        C1Task newTask = null;
+
+        try(
+                Connection connection = connectionPool.getConnection();
+                PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+                ) {
+            ps.setString(1,taskName);
+            ps.setString(2,description);
+            ps.setInt(3, 0);
+            int rowsAffected = ps.executeUpdate();
+            if (rowsAffected == 1){
+                ResultSet rs = ps.getGeneratedKeys();
+                rs.next();
+                int newID = rs.getInt(1);
+                newTask = new C1Task(newID, taskName, description,"", 0, team.getTeamID());
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public static List<C1Task> getAllTasksPerTeam(int team_id, ConnectionPool connectionPool) throws DatabaseException {
 

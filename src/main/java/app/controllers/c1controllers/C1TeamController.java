@@ -1,11 +1,15 @@
 package app.controllers.c1controllers;
 
+import app.entities.c1entities.C1Task;
 import app.entities.c1entities.C1Team;
 import app.exceptions.DatabaseException;
 import app.persistence.ConnectionPool;
+import app.persistence.c1persistence.C1TaskMapper;
 import app.persistence.c1persistence.C1TeamMapper;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
+
+import java.util.List;
 
 public class C1TeamController {
 
@@ -27,6 +31,8 @@ public class C1TeamController {
 
             C1Team team = C1TeamMapper.createAccount(teamName, password, connectionPool);
             ctx.sessionAttribute("team", team);
+            List<C1Task> taskList = C1TaskMapper.getAllTasksPerTeam(team.getTeamID(), connectionPool);
+            ctx.attribute("taskList", taskList);
             ctx.render("c1templates/c1dashboard.html");
 
 

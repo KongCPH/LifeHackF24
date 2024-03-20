@@ -2,6 +2,7 @@ package app;
 
 import app.config.ThymeleafConfig;
 import app.controllers.UserController;
+import app.controllers.c3.ControllerC3;
 import app.persistence.ConnectionPool;
 import io.javalin.Javalin;
 import io.javalin.rendering.template.JavalinThymeleaf;
@@ -29,5 +30,6 @@ public class Main
         app.get("/", ctx -> ctx.render("index.html"));
         UserController.addRoutes(app, connectionPool);
         TimeZonesController.addRoutes(app, connectionPool);
+        ControllerC3.addRoutes(app, connectionPool); // controlleren indeholder routes til vores views, altså hvor viden er, forbindelse til det skabes her.
     }
 }

@@ -63,7 +63,7 @@ input[type="password"] {
     border-radius: 4px;
 }
 
-button {
+button{
     width: 100%;
     padding: 10px;
     border: none;
@@ -71,12 +71,27 @@ button {
     cursor: pointer;
 }
 
+.create-container {
+    display: flex;
+    justify-content: center;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+}
+
 .create-btn {
+    width: 200px;
+    height: 40px;
     background-color: #007bff;
     color: #fff;
+
 }
 
 .login-btn {
+    width: 200px;
+    height: 40px;
     background-color: #28a745;
     color: #fff;
 }

@@ -6,6 +6,7 @@ body {
     align-items: center;
 }
 
+
 h1 {
     color: darkolivegreen;
     font-family: "Bookman Old Style";
@@ -17,7 +18,7 @@ h1 {
 }
 
 h2 {
-    color: darkgreen;
+    color: #3c4922;
     font-family: "Bookman Old Style";
     font-size: 1.5rem;
     display: flex;
@@ -47,6 +48,7 @@ font-family: "Baskerville Old Face";
     align-items: center;
 
 }
+
 
 
 #search-button {

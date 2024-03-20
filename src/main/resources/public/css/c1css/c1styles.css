@@ -108,3 +108,7 @@ button{
 input[type="radio"]:checked + label{
     background-color: #c5c5c5;
 }
+
+/*.selectThing {*/
+/*    display: flex;*/
+/*}*/

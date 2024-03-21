@@ -1,17 +1,14 @@
 package app;
 
 import app.config.ThymeleafConfig;
+import app.controllers.TimeZonesController;
 import app.controllers.UserController;
-
 import app.controllers.c4.c4UserController;
-
-import app.controllers.c3.ControllerC3;
-
 import app.persistence.ConnectionPool;
 import io.javalin.Javalin;
 import io.javalin.rendering.template.JavalinThymeleaf;
 
-public class Main
+public class c4Main
 {
     private static final String USER = "postgres";
     private static final String PASSWORD = "postgres";
@@ -31,14 +28,10 @@ public class Main
 
         // Routing
 
-        app.get("/", ctx -> ctx.render("index.html"));
+        app.get("/", ctx -> ctx.render("c4/index.html"));
         UserController.addRoutes(app, connectionPool);
         TimeZonesController.addRoutes(app, connectionPool);
-
         c4UserController.addRoutes(app, connectionPool);
-
-
-        ControllerC3.addRoutes(app, connectionPool); // controlleren indeholder routes til vores views, altså hvor viden er, forbindelse til det skabes her.
 
     }
 }

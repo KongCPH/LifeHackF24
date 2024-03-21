@@ -30,6 +30,11 @@
                 <div class="card-copy">Vaskeanvisninger</div>
                 <a class="card-link" href="c3/index.html" th:href="@{/c3/}"/>Klik her!</a>
             </div>
+            <div class="card">
+                <img class="card-image" alt="c2" src="../public/images/c2/chatserver.png" th:src="@{/images/c2/chatserver.png}"/>
+                <div class="card-copy"><span style="white-space: pre-wrap;" th:text="${session.c2Frontpage.currentlyOnline}"></span></div>
+                <a class="card-link" href="c2/index.html" th:href="@{/c2/}"/>Chatserver</a>
+            </div>
         </div>
     </div>
     <h3>If you need to log in - do it here</h3>

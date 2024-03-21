@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class UserMapper
 {
@@ -66,6 +68,38 @@ public class UserMapper
                 msg = "Brugernavnet findes allerede. Vælg et andet";
             }
             throw new DatabaseException(msg, e.getMessage());
+        }
+    }
+    
+    public static Map< String, User > c2GetAllUsers( ConnectionPool connectionPool ) throws DatabaseException
+    {
+        String sql = "SELECT * FROM users WHERE role != 'system';";
+        
+        try (
+                Connection connection = connectionPool.getConnection();
+                PreparedStatement ps = connection.prepareStatement( sql )
+        ) {
+            
+            ResultSet rs = ps.executeQuery();
+            
+            Map< String, User > allUsers = new LinkedHashMap<>();
+            User user;
+            
+            while ( rs.next() ) {
+                
+                int user_id = rs.getInt( "user_id" );
+                String username = rs.getString( "username" );
+                String password = rs.getString( "password" );
+                String role = rs.getString( "role" );
+                
+                user = new User( user_id, username, password, role );
+                allUsers.put( user.getUserName(), user );
+            }
+            
+            return allUsers;
+            
+        } catch ( SQLException e ) {
+            throw new DatabaseException( "DB fejl", e.getMessage() );
         }
     }
 }

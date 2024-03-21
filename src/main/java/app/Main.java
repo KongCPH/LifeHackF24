@@ -2,6 +2,7 @@ package app;
 
 import app.config.ThymeleafConfig;
 import app.controllers.UserController;
+import app.controllers.c2.ChatserverController;
 import app.controllers.c3.ControllerC3;
 import app.persistence.ConnectionPool;
 import io.javalin.Javalin;
@@ -23,6 +24,7 @@ public class Main
         Javalin app = Javalin.create(config -> {
             config.staticFiles.add("/public");
             config.fileRenderer(new JavalinThymeleaf(ThymeleafConfig.templateEngine()));
+            ChatserverController.c2Start( config, connectionPool );
         }).start(7070);
 
         // Routing
@@ -30,6 +32,8 @@ public class Main
         app.get("/", ctx -> ctx.render("index.html"));
         UserController.addRoutes(app, connectionPool);
         TimeZonesController.addRoutes(app, connectionPool);
+        
+        ChatserverController.c2AddRoutes( app, connectionPool );
         ControllerC3.addRoutes(app, connectionPool); // controlleren indeholder routes til vores views, altså hvor viden er, forbindelse til det skabes her.
     }
 }

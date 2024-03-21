@@ -71,10 +71,12 @@
             <tbody>
             <tr th:each="task: ${taskList}" th:if="${task.lifeCycleID == 0}">
                 <td th:text="${task.taskTitle}"></td>
+                <td th:text="${task.taskResponsible}"></td>
                 <td>
                     <form method="post">
                         <input type="hidden" name="taskID" th:value="${task.taskID}">
                         <input type="hidden" name="lifeCycleID" th:value="${task.lifeCycleID+1}">
+                        <input type="hidden" name="taskResponsible" th:value="${session.loginName}">
                         <button class="moveButton" type="submit" formaction="movetask">Right</button>
                     </form>
                 </td>

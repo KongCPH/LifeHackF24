@@ -56,13 +56,24 @@ public class C1TaskController {
     private static void moveTask(Context ctx, ConnectionPool connectionPool) {
         int taskID = Integer.parseInt(ctx.formParam("taskID"));
         int lifeCycleID = Integer.parseInt(ctx.formParam("lifeCycleID"));
+        String taskResponsible = ctx.formParam("taskResponsible");
 
         try{
             C1Team team = ctx.sessionAttribute("team");
+            if (taskResponsible.isBlank()) {
+
             C1TaskMapper.moveTask(taskID, lifeCycleID, connectionPool);
             List<C1Task> taskList = C1TaskMapper.getAllTasksPerTeam(team.getTeamID(), connectionPool);
             ctx.attribute("taskList", taskList);
             ctx.render("c1templates/c1dashboard.html");
+            } else {
+
+                C1TaskMapper.moveTask(taskID, lifeCycleID, connectionPool);
+                List<C1Task> taskList = C1TaskMapper.getAllTasksPerTeam(team.getTeamID(), connectionPool);
+                ctx.attribute("taskList", taskList);
+                ctx.render("c1templates/c1dashboard.html");
+
+            }
         } catch (DatabaseException e) {
             throw new RuntimeException(e);
         }

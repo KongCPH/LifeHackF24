@@ -49,6 +49,11 @@ public class C1TaskMapper {
         }
     }
 
+    public static void setResponsible(int taskID, String responsible, ConnectionPool connectionPool) {
+
+        String sql = "UPDATE responsible SET responsible=";
+    }
+
     public static List<C1Task> getAllTasksPerTeam(int team_id, ConnectionPool connectionPool) throws DatabaseException {
 
         List<C1Task> taskList = new ArrayList<>();

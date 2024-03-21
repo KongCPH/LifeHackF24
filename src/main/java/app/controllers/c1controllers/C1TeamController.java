@@ -31,6 +31,7 @@ public class C1TeamController {
 
             C1Team team = C1TeamMapper.createAccount(teamName, password, connectionPool);
             ctx.sessionAttribute("team", team);
+            ctx.sessionAttribute("loginName");
             List<C1Task> taskList = C1TaskMapper.getAllTasksPerTeam(team.getTeamID(), connectionPool);
             ctx.attribute("taskList", taskList);
             ctx.render("c1templates/c1dashboard.html");

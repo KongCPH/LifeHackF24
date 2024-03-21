@@ -204,32 +204,16 @@ body {
     margin-bottom: 15px;
 }
 
+/* Media queries to make sure it can be viewed on mobile */
+/* Define a media query for screens with a maximum width of 768px */
+@media screen and (max-width: 768px) {
+    #task-table-container {
+        flex-direction: column;
+        align-items: center;
+    }
 
-/*#task-table-container {*/
-/*    display: flex;*/
-/*    justify-content: space-around;*/
-/*    margin-top: 20px;*/
-/*}*/
 
-/*.task-table {*/
-/*    border-collapse: collapse;*/
-/*    width: 200px;*/
-/*    border: 1px solid #ddd;*/
-/*}*/
-
-/*.task-table th,*/
-/*.task-table td {*/
-/*    border: 1px solid #ddd;*/
-/*    padding: 8px;*/
-/*    text-align: left;*/
-/*}*/
-
-/*.task-table th {*/
-/*    background-color: #f2f2f2;*/
-/*    text-align: center;*/
-/*}*/
-
-/*.task-buttons {*/
-/*    display: flex;*/
-/*    justify-content: space-between;*/
-/*}*/
+    #task-table-container div {
+        width: 90%;
+    }
+}

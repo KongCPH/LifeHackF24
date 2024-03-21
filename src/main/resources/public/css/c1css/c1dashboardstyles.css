@@ -5,6 +5,17 @@ body {
 }
 * {box-sizing: border-box;}
 
+.headline {
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+}
+
+.headline img {
+    max-width: 100%;
+    height: auto;
+}
+
 .topper {
     display: flex;
     justify-content: space-between;
@@ -129,6 +140,18 @@ body {
     .right-button {
         border: 0;
         border-radius: 0.2rem;
+    }
+    .removeButton {
+        border: none;
+        padding: 8px 25px;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .removeButton:hover {
+        background-color: red;
     }
 }
 

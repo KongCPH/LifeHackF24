@@ -15,8 +15,14 @@ body {
 }
 
 .headline {
-    text-align: center;
-    color: #333;
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+}
+
+.headline img {
+    max-width: 100%;
+    height: auto;
 }
 
 .forms-container1 {

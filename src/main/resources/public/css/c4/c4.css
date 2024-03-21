@@ -10,7 +10,7 @@ body {
 h1 {
     color: darkolivegreen;
     font-family: "Bookman Old Style";
-    font-size: 2.5rem;
+    font-size: 2.3rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,10 +43,20 @@ font-family: "Baskerville Old Face";
     font-size: 1.2rem;
     padding-top: 10px;
     padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-right: 10px;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+    border-radius: 7px;
 
+}
+
+.dropdowns-case {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -56,7 +66,6 @@ font-family: "Baskerville Old Face";
     justify-content: center;
     padding-left: 10px;
     padding-right: 10px;
-    margin-top: 20px;
     cursor: pointer;
     display: flex;
     justify-content: center;

@@ -49,9 +49,21 @@ public class C1TaskMapper {
         }
     }
 
-    public static void setResponsible(int taskID, String responsible, ConnectionPool connectionPool) {
+    public static void setResponsible(int taskID, String responsible, ConnectionPool connectionPool) throws DatabaseException {
 
-        String sql = "UPDATE responsible SET responsible=";
+        String sql = "UPDATE c1_task SET responsible = ? WHERE task_id = ?";
+
+        try (Connection connection = connectionPool.getConnection();
+        PreparedStatement ps = connection.prepareStatement(sql)){
+
+            ps.setString(1, responsible);
+            ps.setInt(2, taskID);
+
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new DatabaseException("Could not set Responsible", e.getMessage());
+        }
     }
 
     public static List<C1Task> getAllTasksPerTeam(int team_id, ConnectionPool connectionPool) throws DatabaseException {

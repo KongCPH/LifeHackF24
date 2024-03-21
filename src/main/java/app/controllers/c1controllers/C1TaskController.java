@@ -60,7 +60,7 @@ public class C1TaskController {
 
         try{
             C1Team team = ctx.sessionAttribute("team");
-            if (taskResponsible.isBlank()) {
+            if (taskResponsible == null) {
 
             C1TaskMapper.moveTask(taskID, lifeCycleID, connectionPool);
             List<C1Task> taskList = C1TaskMapper.getAllTasksPerTeam(team.getTeamID(), connectionPool);
@@ -68,6 +68,7 @@ public class C1TaskController {
             ctx.render("c1templates/c1dashboard.html");
             } else {
 
+                C1TaskMapper.setResponsible(taskID, taskResponsible, connectionPool);
                 C1TaskMapper.moveTask(taskID, lifeCycleID, connectionPool);
                 List<C1Task> taskList = C1TaskMapper.getAllTasksPerTeam(team.getTeamID(), connectionPool);
                 ctx.attribute("taskList", taskList);

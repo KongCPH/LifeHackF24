@@ -24,6 +24,7 @@ public class C1TeamController {
 
     private static void createTeam(Context ctx, ConnectionPool connectionPool) {
 
+        String loginName = ctx.formParam("loginName");
         String teamName = ctx.formParam("teamName");
         String password = ctx.formParam("password");
 
@@ -31,7 +32,7 @@ public class C1TeamController {
 
             C1Team team = C1TeamMapper.createAccount(teamName, password, connectionPool);
             ctx.sessionAttribute("team", team);
-            ctx.sessionAttribute("loginName");
+            ctx.sessionAttribute("loginName", loginName);
             List<C1Task> taskList = C1TaskMapper.getAllTasksPerTeam(team.getTeamID(), connectionPool);
             ctx.attribute("taskList", taskList);
             ctx.render("c1templates/c1dashboard.html");

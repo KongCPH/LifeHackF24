@@ -1,0 +1,91 @@
+/* index-specific styles */
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+h1 {
+    color: darkolivegreen;
+    font-family: "Bookman Old Style";
+    font-size: 2.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+h2 {
+    color: #3c4922;
+    font-family: "Bookman Old Style";
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.innerpage {
+background-image: url("../../images/c4/index_background.jpg"); background-color: beige;
+    background-blend-mode: soft-light;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+
+.dropdowns {
+font-family: "Baskerville Old Face";
+    font-size: 1.2rem;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+
+}
+
+.dropdowns-case {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+#search-button {
+    display: flex;
+    justify-content: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#search-button button {
+background-color: burlywood !important;
+    color: firebrick !important;
+    border-radius: 7px;
+    font-size: 1.2rem;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#search-button button:hover {
+    background-color: darkolivegreen !important;
+    color: gold !important;
+}

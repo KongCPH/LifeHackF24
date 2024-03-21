@@ -53,12 +53,14 @@ public class C1TeamController {
 
     private static void login(Context ctx, ConnectionPool connectionPool) {
 
+        String loginName = ctx.formParam("loginName");
         String teamName = ctx.formParam("teamName");
         String password = ctx.formParam("password");
 
         try {
             C1Team team = C1TeamMapper.login(teamName, password, connectionPool);
             ctx.sessionAttribute("team", team);
+            ctx.sessionAttribute("loginName", loginName);
             List<C1Task> taskList = C1TaskMapper.getAllTasksPerTeam(team.getTeamID(), connectionPool);
             ctx.attribute("taskList", taskList);
             ctx.render("c1templates/c1dashboard.html");

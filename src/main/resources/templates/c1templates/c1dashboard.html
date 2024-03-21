@@ -20,10 +20,10 @@
           rel="stylesheet">
 </head>
 <body>
-<h1 class="headline"><img src="../../public/images/c1images/GetItDoneHeader2.png"/></h1>
+<h1 class="headline"><img src="/images/c1images/GetItDoneHeader2.png"/></h1>
 
 <div class="topper">
-    <h2>Welcome,<span th:value="${session.loginName}"></span> you are logged in to <span th:text="${session.team.teamName}"></span></h2>
+    <h2>Welcome, <span th:text="${session.loginName}"></span> you are logged in to <span th:text="${session.team.teamName}"></span></h2>
 
     <!--    <p th:if="${session.teamname != null}">-->
     <a class="logout" href="c1login.html" th:href="@{/logout}">Logout</a>

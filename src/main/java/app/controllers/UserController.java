@@ -1,5 +1,6 @@
 package app.controllers;
 
+import app.controllers.c2.ChatserverController;
 import app.entities.Task;
 import app.entities.User;
 import app.exceptions.DatabaseException;
@@ -35,6 +36,8 @@ public class UserController
                 ctx.attribute("message", "Du er hermed oprettet med brugernavn: " + username +
                         ". Nu skal du logge på.");
                 ctx.render("index.html");
+                
+                ChatserverController.c2AddNewlyCreatedUser( username );
             }
 
             catch (DatabaseException e)

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<title>Chatserver</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--<link href="../../public/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>-->
+<link href="../../public/css/c2/chatserver.css" th:href="@{/css/c2/chatserver.css}" rel="stylesheet"/>
+</head>
+
+<body>
+
+<div class="page">
+    <header>
+        <a href="../index.html" th:href="@{/}">
+            <img alt="logo" src="../../public/images/lifehacklogo.png" th:src="@{/images/lifehacklogo.png}"/>
+        </a>
+    </header>
+
+
+    <div class="c2Chat-body">
+        <div class="c2Chat-box">
+            <div class="c2Chat-fullMessage" th:each="allMessage : ${session.c2AllMessages}">
+                <div class="c2Chat-fullMessage"
+                     th:if="${allMessage.value.receiver == session.currentUser.userName || allMessage.value.receiver == '@AlL' || allMessage.value.sender == session.currentUser.userName}">
+                    <h4 class="c2Chat-meta"><span th:text="${allMessage.value.meta}"></span></h4>
+                    <p class="c2Chat-message"><span style="white-space: pre-wrap;"
+                                                    th:text="${allMessage.value.message}"></span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="c2Message-box-div">
+            <form id="send-message" method="post" class="c2Message-box-form">
+                <div class="grow-wrap">
+                    <textarea class="c2Message-box" name="c2NewMessageMessage" id="c2NewMessageMessage"
+                              placeholder="Your chat message..."></textarea>
+                </div>
+
+                <input type="hidden" id="c2NewMessageSender" name="c2NewMessageSender"
+                       th:value="${session.currentUser.userName}">
+
+            </form>
+
+            <div class="c2Message-buttons-div">
+                <div class="c2Message-buttons-underdiv">
+                    <div>
+                        <form action="../c2/" id="update-button">
+                            <button class="c2Message-box-button" type="submit" form="update-button"
+                                    value="update-button">Update
+                            </button>
+                        </form>
+
+                        <div class="c2Message-box-button-div">
+                            <button class="c2Message-box-button" type="submit" formaction="c2Send" form="send-message">
+                                Send
+                            </button>
+                        </div>
+                    </div>
+
+                    <label for="c2NewMessageReceiver">Recipient</label>
+                    <select class="c2Recipient-select" name="c2NewMessageReceiver" id="c2NewMessageReceiver"
+                            form="send-message" onfocus='this.size=10;' onblur='this.size=1;'
+                            onchange='this.size=1; this.blur();'>
+                        <option value="@AlL">All</option>
+
+
+                        <optgroup label="Online">
+                            <option th:each="onlineUsername : ${session.c2Online}"
+                                    th:value="${onlineUsername}"
+                                    th:text="${onlineUsername}">
+                            </option>
+                        </optgroup>
+
+                        <optgroup label="Offline">
+                            <option th:each="offlineUsername : ${session.c2Offline}"
+                                    th:value="${offlineUsername}"
+                                    th:text="${offlineUsername}">
+                            </option>
+                        </optgroup>
+
+
+                    </select>
+                </div>
+
+                <!--                <div class="c2Message-box-button-div">-->
+                <!--                    <button class="c2Message-box-button" type="submit" formaction="c2Send" form="send-message">Send-->
+                <!--                    </button>-->
+                <!--                </div>-->
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

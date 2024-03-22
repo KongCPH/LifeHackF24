@@ -12,9 +12,9 @@ import java.util.List;
 
 public class c4UserController {
     public static void addRoutes(Javalin app, ConnectionPool connectionPool) {
-        app.get("/c4", ctx -> index(ctx, connectionPool));
-        app.post("/search", ctx -> search(ctx, connectionPool));
-        app.get("/search", ctx -> ctx.render("c4/index.html"));
+        app.get("/c4/", ctx -> index(ctx, connectionPool));
+        app.post("/c4/search", ctx -> search(ctx, connectionPool));
+        app.get("/c4/search", ctx -> ctx.render("c4/index.html"));
     }
 
     private static void search(Context ctx, ConnectionPool connectionPool) throws DatabaseException {

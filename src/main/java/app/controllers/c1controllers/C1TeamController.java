@@ -15,13 +15,20 @@ public class C1TeamController {
 
     public static void addRoutes(Javalin app, ConnectionPool connectionPool)
     {
-        app.post("login", ctx -> login(ctx, connectionPool));
-        app.get("logout", ctx -> logout(ctx));
-        app.post("createTeam", ctx -> createTeam(ctx, connectionPool));
+        app.get("/c1templates/login", ctx -> index(ctx, connectionPool));
+        app.get("/c1templates/", ctx -> index(ctx, connectionPool));
+        app.post("/c1templates/login", ctx -> login(ctx, connectionPool));
+        app.get("/c1templates/logout", ctx -> logout(ctx));
+        app.post("/c1templates/createTeam", ctx -> createTeam(ctx, connectionPool));
 
 
     }
-
+    
+    private static void index( Context ctx, ConnectionPool connectionPool )
+    {
+        ctx.render( "c1templates/c1login.html" );
+    }
+    
     private static void createTeam(Context ctx, ConnectionPool connectionPool) {
 
         String loginName = ctx.formParam("loginName");

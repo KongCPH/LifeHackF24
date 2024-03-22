@@ -20,20 +20,26 @@
     <div class="projects">
         <h2>Projects to check out</h2>
         <div class="cards">
-                <div class="card">
-                    <img class="card-image" alt="timezones" src="../public/images/timezones/timezone_icon.jpg" th:src="@{/images/timezones/timezone_icon.jpg}"/>
-                    <div class="card-copy">Check the clock, everywhere</div>
-                    <a class="card-link" href="timezones/index.html" th:href="@{/timezones/}"/>Timezones</a>
-                </div>
             <div class="card">
-                <img class="card-image" alt="c3" src="../public/images/c3/c3Logo/LogoC3.png" th:src="@{/images/c3/c3Logo/LogoC3.png}"/>
-                <div class="card-copy">Vaskeanvisninger</div>
-                <a class="card-link" href="c3/index.html" th:href="@{/c3/}"/>Klik her!</a>
+                <img class="card-image" alt="c1" src="../public/images/c1images/GetItDoneLogo.png" th:src="@{/images/c1images/GetItDoneLogo.png}"/>
+                <div class="card-copy">Get It Done</span></div>
+                <a class="card-link" href="c1templates/c1login.html" th:href="@{/c1templates/}">Get It Done!</a>
             </div>
             <div class="card">
                 <img class="card-image" alt="c2" src="../public/images/c2/chatserver.png" th:src="@{/images/c2/chatserver.png}"/>
                 <div class="card-copy"><span style="white-space: pre-wrap;" th:text="${session.c2Frontpage.currentlyOnline}"></span></div>
-                <a class="card-link" href="c2/index.html" th:href="@{/c2/}"/>Chatserver</a>
+                <a class="card-link" href="c2/index.html" th:href="@{/c2/}">Chatserver</a>
+                <div><p class="error" th:unless="${#strings.isEmpty(c2Message)}" th:text="${c2Message}" style="margin-left: 5px; margin-right: 5px"></p></div>
+            </div>
+            <div class="card">
+                <img class="card-image" alt="c3" src="../public/images/c3/c3Logo/LogoC3.png" th:src="@{/images/c3/c3Logo/LogoC3.png}"/>
+                <div class="card-copy">Vaskeanvisninger</div>
+                <a class="card-link" href="c3/index.html" th:href="@{/c3/}">Klik her!</a>
+            </div>
+            <div class="card">
+                <img class="card-image" alt="c4" src="../public/images/c4/Seasons_Composition.jpg" th:src="@{/images/c4/Seasons_Composition.jpg}"/>
+                <div class="card-copy">The food of the season!</span></div>
+                <a class="card-link" href="c4/index.html" th:href="@{/c4/}">In Season Now!</a>
             </div>
         </div>
     </div>

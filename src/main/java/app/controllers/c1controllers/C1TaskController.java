@@ -16,9 +16,9 @@ import static app.persistence.c1persistence.C1TaskMapper.moveTask;
 public class C1TaskController {
 
     public static void addRoutes(Javalin app, ConnectionPool connectionPool) {
-        app.post("movetask", ctx -> moveTask(ctx, connectionPool));
-        app.post("addTask", ctx -> addTask(ctx, connectionPool));
-        app.post("removeTask", ctx -> deleteTask(ctx, connectionPool));
+        app.post("/c1templates/movetask", ctx -> moveTask(ctx, connectionPool));
+        app.post("/c1templates/addTask", ctx -> addTask(ctx, connectionPool));
+        app.post("/c1templates/removeTask", ctx -> deleteTask(ctx, connectionPool));
     }
 
     private static void deleteTask(Context ctx, ConnectionPool connectionPool) {

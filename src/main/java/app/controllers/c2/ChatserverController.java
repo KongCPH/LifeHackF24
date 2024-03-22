@@ -29,7 +29,7 @@ public class ChatserverController
     
     
     
-    private static int BACKUP_ID = 0; //In case the database has gone down
+    private static int fallbackMessageId = 0; //In case the database has gone down
     
     private static final CurrentlyOnline C2_FRONTPAGE = new CurrentlyOnline(); //The text on the frontpage for our site :)
     private static final Set< String > C2_OFFLINE = new TreeSet<>(); //username
@@ -52,10 +52,10 @@ public class ChatserverController
         app.before( "createuser", ctx -> beforeFrontpage( ctx ) );
         
         //Refresh our page
-        app.get( Pages.indexPage, ctx -> index( ctx, connectionPool ) );
+        app.get( Pages.INDEX_PAGE, ctx -> index( ctx, connectionPool ) );
         
         //Post message
-        app.post( Pages.c2SendPage, ctx -> indexSend( ctx, connectionPool ) );
+        app.post( Pages.C2_SEND_PAGE, ctx -> indexSend( ctx, connectionPool ) );
         
         
     }
@@ -73,7 +73,7 @@ public class ChatserverController
     
     private static void indexRedirect( Context ctx ) //Go load the page
     {
-        ctx.redirect( Pages.indexPage );
+        ctx.redirect( Pages.INDEX_PAGE );
     }
     
     private static void index( Context ctx, ConnectionPool connectionPool ) //Loaded the page
@@ -101,7 +101,7 @@ public class ChatserverController
         
         updateLastKnownActivity( ctx, connectionPool );
         
-        ctx.render( Html.indexFile );
+        ctx.render( Html.INDEX_FILE );
     }
     
     
@@ -146,12 +146,12 @@ public class ChatserverController
             
             //We can't use ctx, so a bit difficult to inform the user of this
             
-            while ( C2_ALL_MESSAGES.containsKey( BACKUP_ID ) ) {
-                BACKUP_ID++;
+            while ( C2_ALL_MESSAGES.containsKey( fallbackMessageId ) ) {
+                fallbackMessageId++;
             }
             
             dataBaseMessage = new MessageForHtml();
-            dataBaseMessage.setMessageId( BACKUP_ID );
+            dataBaseMessage.setMessageId( fallbackMessageId );
         }
         
         messageForHtml.setMessageId( dataBaseMessage.getMessageId() );
@@ -194,7 +194,7 @@ public class ChatserverController
     
     private static void notLoggedInHandler( Context ctx ) //For when currentUser == null
     {
-        ctx.attribute( CtxAttributes.message, "You must be logged in to chat" );
+        ctx.attribute( CtxAttributes.c2Message, "You must be logged in to chat" );
         beforeFrontpage( ctx );
         ctx.render( "../templates/index" );
     }

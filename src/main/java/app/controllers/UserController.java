@@ -35,7 +35,7 @@ public class UserController
                 UserMapper.createuser(username, password1, connectionPool);
                 ctx.attribute("message", "Du er hermed oprettet med brugernavn: " + username +
                         ". Nu skal du logge på.");
-                ctx.render("index.html");
+                ctx.render("c1login.html");
                 
                 ChatserverController.c2AddNewlyCreatedUser( username );
             }

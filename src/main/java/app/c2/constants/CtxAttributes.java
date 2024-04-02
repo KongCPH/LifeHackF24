@@ -2,6 +2,6 @@ package app.c2.constants;
 
 public interface CtxAttributes
 {
-    String message = "message"; //Made by signe, text to show when errors happen
+    String c2Message = "c2Message"; //For error messages. Only implemented on front page for now
     
 }

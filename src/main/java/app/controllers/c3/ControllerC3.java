@@ -17,7 +17,7 @@ public class ControllerC3 {
     public static void addRoutes(Javalin app, ConnectionPool connectionPool)
     {
         // dette er vores index route
-        app.get("/c3", ctx -> index(ctx, connectionPool));
+        app.get("/c3/", ctx -> index(ctx, connectionPool));
     }
 
 
